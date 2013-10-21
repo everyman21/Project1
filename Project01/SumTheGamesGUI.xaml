@@ -1,0 +1,60 @@
+﻿<Window x:Class="Project01.SumTheGamesGUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SumTheNumbers" Height="350" Width="525" MinHeight="350" MinWidth="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="MainMenu" IsMainMenu="True" Grid.Row="0">
+        </Menu>
+        
+        <StackPanel x:Name="ShowNumberStackPlane" Grid.Row="1">
+            
+        </StackPanel>
+        <StackPanel x:Name="GameLevelStackPlane" Grid.Row="2">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Content="level 1"  IsChecked="True" GroupName="GameLevel" Grid.Column="0" Checked="GameLevelRadioButton_Click"/>
+                <RadioButton Content="level 2" GroupName="GameLevel" Grid.Column="1" Checked="GameLevelRadioButton_Click"/>
+                <RadioButton Content="level 3" GroupName="GameLevel" Grid.Column="2" Checked="GameLevelRadioButton_Click"/>
+            </Grid>
+            
+
+        </StackPanel>
+        <StackPanel Grid.Row="3" Margin="40 20 0 0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="CheckAnswerButton" Grid.Row="0" Content="Check Answer"   
+        			HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Margin="10" Click="CheckAnswerButton_Click"/>
+
+                <TextBox  x:Name="AnswerTextBox" Grid.Row="0"  Text="###" 
+        			VerticalAlignment="Center" Width="50" HorizontalAlignment="Right"  Margin="100 10"   />
+
+                <Label Grid.Row="0" Content="Your Answer:"  VerticalAlignment="Center" 
+        			HorizontalAlignment="Right" Margin="170 10"/>
+
+                <Button Grid.Row="1" x:Name="StartGameButton" Content="Start Game"  
+        			HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Margin="10" Click="StartGameButton_Click"/>
+
+                <Label Grid.Row="1" x:Name="FeedbackHereLabel" Content="Feedback here"  VerticalAlignment="Center" 
+        			HorizontalAlignment="Right" Margin="100 10 100 10"/>
+
+
+
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>

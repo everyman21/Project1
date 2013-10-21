@@ -1,0 +1,53 @@
+﻿<Window x:Class="Project01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Brain Games" Height="350" Width="525" MinHeight="350" MinWidth="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            
+        </Grid.RowDefinitions>
+        <Menu x:Name="MainMenu" IsMainMenu="True" Grid.Row="0" >            
+        </Menu>
+        <Viewbox Grid.Row="1" x:Name="SelectGamesViewbox" Stretch="Fill">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="Game1Image" Grid.Column="0" HorizontalAlignment="Center"  Margin="20" Height="100"  
+                    VerticalAlignment="Center" Width="100" Stretch="Fill" Source="image/game1.jpg" 
+                        MouseEnter="GameImage_MouseEnter" MouseLeave="GameImage_MouseLeave" MouseLeftButtonDown="GameImage_MouseLeftButtonDown"/>
+                <Image x:Name="Game2Image" Grid.Column="1" HorizontalAlignment="Center"  Height="100" Margin="20" 
+                    VerticalAlignment="Center" Width="100" Stretch="Fill" Source="image/game2.jpg"
+                          MouseEnter="GameImage_MouseEnter" MouseLeave="GameImage_MouseLeave" MouseLeftButtonDown="GameImage_MouseLeftButtonDown"/>
+                <Image x:Name="Game3Image" Grid.Column="2" HorizontalAlignment="Center"  Height="100" Margin="20" 
+                    VerticalAlignment="Center" Width="100" Stretch="Fill" Source="image/game3.jpg"
+                          MouseEnter="GameImage_MouseEnter" MouseLeave="GameImage_MouseLeave" MouseLeftButtonDown="GameImage_MouseLeftButtonDown"/>
+            </Grid>
+
+
+        </Viewbox>
+        <Viewbox Grid.Row="2" x:Name="InformationViewbox" IsEnabled="False">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="Game1InfTextBox" Grid.Column="0" Text="game1" TextWrapping="Wrap" Margin="10" />
+                <TextBox x:Name="Game2InfTextBox" Grid.Column="1" Text="game2"  TextWrapping="Wrap" Margin="10"/>
+                <TextBox x:Name="Game3InfTextBox" Grid.Column="2" Text="game3"  TextWrapping="Wrap" Margin="10"/>
+            </Grid>
+
+
+        </Viewbox>
+        
+
+    </Grid>
+    
+</Window>
