@@ -16,7 +16,12 @@ using System.Windows.Threading;
 namespace Project01
 {
     /// <summary>
-    /// Interaction logic for PrimeCheckGUI.xaml
+    /// A simple Game where the user determines if the number presented is prime or not. 
+    /// There are ten questions with a difficulty setting of easy (Numbers: 1 to 9). medium (10 - 99) and hard (100 to 999)
+    /// There is a countdown of 5 seconds before the next question is presented
+    /// There is a question number count telling the user what question they are on
+    /// There is a right question count telling the user how many they have that are correct.
+    /// There is a summary box giving the user feedback on there answers and if they ran out of time.
     /// </summary>
     public partial class PrimeCheckGUI : Window
     {
@@ -42,6 +47,7 @@ namespace Project01
         public float GameScore { get { return gameScore * 100; } }
         public int GetPlayTimes() { return playingTimesAct;  }
 
+        // Sets up before the Start Game button is clicked everything but the start button and difficulty buttons are disabled
         private void PrepareNewGame()
         {
             StartButton.IsEnabled = true;
@@ -74,7 +80,8 @@ namespace Project01
             
         }
 
- 
+        // Event Handler Enabling all interative elements, rettinng the current question count & right answer count.
+        // It also starts the first question.
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
             StartButton.IsEnabled = true;
@@ -96,6 +103,10 @@ namespace Project01
 
         }
 
+        // Generates a Random number based on the checked button difficulty, Easy, Medium and Hard. 
+        // Easy generates a random number between 1 and 9.
+        // Medium generates a random number between 10 to 99.
+        // Hard generates a random number between 100 and 999.
         private void generateNumber()
         {
             if (EasyRadioBtn.IsChecked == true)
@@ -135,7 +146,7 @@ namespace Project01
 
 
 
-
+        // Determines wether the question number is prime or not. 
         public bool IsAnswerPrime()
         {
             if ((randomNumber & 1) == 0)
@@ -162,7 +173,7 @@ namespace Project01
 
 
 
-
+        // if there is a next question. It advances to the next question or it ends the tests
         private void NextQuestionUsed()
         {
             if (IsNextQuestion())
@@ -179,6 +190,8 @@ namespace Project01
             }
         }
 
+        // Ends test. Disables all functionality except to start a new test and select difficulty.  
+        // also generates a message box telling how many answers they got correct
         private void EndOfTest()
         {
             StartButton.IsEnabled = true;
@@ -198,6 +211,7 @@ namespace Project01
             gameScore = currentScore / playingTimesAct;
         }
 
+        // Clicked if it is prime. Determines wether your answer is correct if it is prime. 
         private void PrimeBtn_Click(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("PrimeBtn ClickMode");
@@ -213,6 +227,8 @@ namespace Project01
             }
             NextQuestionUsed();
         }
+
+        // Clicked if its not prime. Determines wether your answer is correct if not prime
         private void NotPrimeBtn_Click(object sender, RoutedEventArgs e)
         {
             timer.Stop();
@@ -230,25 +246,15 @@ namespace Project01
             NextQuestionUsed();
         }
 
-
+       
         int secondsLeft;
         const int secondsToAnswer = 5;
         DispatcherTimer timer;
 
+        // generates a countdown timer of 5 seconds.
         private void StartTimer()
         {
-            /*
-            aTimer = new System.Timers.Timer(secondsToAnswer * 1000);
-            secondsLeft = secondsToAnswer;
-            CountDown.Content = secondsLeft;
-            // Hook up the Elapsed event for the timer.
-            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
-
-            // Set the Interval to 1 seconds (1000 milliseconds).
-            aTimer.Interval = 1000;
-            aTimer.Enabled = true;
-            aTimer.Start();
-            */
+            
             secondsLeft = secondsToAnswer;
             CountDown.Content = secondsLeft;
             timer = new DispatcherTimer();
@@ -258,6 +264,8 @@ namespace Project01
 
         }
 
+        // makes the timer go down in seconds. Logic that if the Timer reaches 0 than
+        // A status of "Sorry... no more time!" shows up and the next question is presented
         private void OnTimedEvent(object source, EventArgs e)
         {
             secondsLeft--;
