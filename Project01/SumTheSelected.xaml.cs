@@ -327,7 +327,7 @@ namespace Project01
         /// <param name="e"></param>
         private void about_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Author: Andy Groenenberg \n Date:2013-10-20 \n Version:1.0.3");
+            MessageBox.Show("Author: Andy Groenenberg \n Date:2013-10-20 \n Version:1.0.7");
         }
 
         /// <summary>

@@ -371,7 +371,7 @@ namespace Project01
             builder.AppendLine(" Main Window Design By : Qi Zhang").AppendLine();
             builder.AppendLine(" Graphics by :Matt Murphey").AppendLine();
             builder.AppendLine(" Updated by : Andrew Groenenberg and Matt Murphey").AppendLine();
-            builder.AppendLine(" Version : 1.0.5 ");
+            builder.AppendLine(" Version : 1.0.6 ");
             
             MessageBox.Show( builder.ToString(), "About MainWindow", MessageBoxButton.OK, MessageBoxImage.Information);
         }

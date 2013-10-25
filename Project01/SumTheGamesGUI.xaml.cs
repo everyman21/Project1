@@ -366,7 +366,7 @@ namespace Project01
         {
             MessageBox.Show("Authors name : Qi Zhang" + Environment.NewLine +
                             "   Game Name : Sum the Numbers " + Environment.NewLine +
-                            "             Version : 1.0 ", "About", MessageBoxButton.OK, MessageBoxImage.Information);
+                            "             Version : 1.0.5 ", "About", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         /// <summary>
