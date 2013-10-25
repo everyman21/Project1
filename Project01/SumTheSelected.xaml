@@ -3,6 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Sum The Selected!" Height="300" Width="300" Loaded="Window_Loaded" >
 
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+
+    </Window.Resources>
 
         <Grid x:Name="outterGrid">
             <Grid.RowDefinitions>
@@ -64,6 +72,15 @@
                 <Button x:Name="playAgainButton" Content="Play Again" Margin="5" Click="playAgainButton_Click" ></Button>
             </StackPanel>
         </Viewbox>
+        <Grid.Background>
+
+            <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1" >
+                <GradientStop Color="Gray" Offset="0.1"/>
+                <GradientStop Color="lightGray" Offset="0.4"/>
+                <GradientStop Color="White" Offset="1"/>
+
+            </LinearGradientBrush>
+        </Grid.Background>
     </Grid>
    
 </Window>    
