@@ -56,7 +56,7 @@
             
         <TextBox x:Name="answerTextBox" Text="" Width="100" HorizontalAlignment="Center" Grid.Row="2" Margin="5" TextChanged="answerTextBox_TextChanged"></TextBox>
         <Label x:Name="timerLabel" Content="" Grid.Row="2" HorizontalAlignment="left"></Label>
-        <Button x:Name="checkAnswerButton" Content="Check Answer" HorizontalAlignment="Right" Grid.Row="2" Margin="5" Click="checkAnswerButton_Click"></Button>
+        <Button x:Name="checkAnswerButton" IsDefault="True" Content="Check Answer" HorizontalAlignment="Right" Grid.Row="2" Margin="5" Click="checkAnswerButton_Click"></Button>
         <Viewbox Grid.Row="3" Stretch="Uniform" Height="30" Margin="2" >
             <StackPanel Orientation="Horizontal">
 

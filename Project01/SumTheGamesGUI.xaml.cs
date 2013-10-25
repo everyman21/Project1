@@ -130,6 +130,9 @@ namespace Project01
             AnswerTextBox.BorderBrush = Brushes.Black;
             AnswerTextBox.BorderThickness = new Thickness(0.5);
             CheckAnswerButton.IsEnabled = false;
+            GameLevelStackPlane.IsEnabled = true;
+            //GameLevel1RadioButton.IsChecked = true;
+            
             AddMenuItems();
             AddShowNumbersStackPlane();
             SetUpTimer();
@@ -194,7 +197,7 @@ namespace Project01
             ShowNumberStackPlane.Children.Clear();
             TimerLabel = new Label();
             TimerLabel.Name = "TimerLabel";
-            TimerLabel.Content = "Timer will strat with New Game";
+            TimerLabel.Content = "Timer will start with New Game";
             TimerLabel.HorizontalAlignment = HorizontalAlignment.Center;
 
             ShowNumbersGrid = new Grid();
@@ -309,14 +312,20 @@ namespace Project01
             }
             else
             {
-                inf = Report() + Environment.NewLine + Environment.NewLine + "The Grade is " + crtAccount + " out of ";
+                int act=0;
+
                 if (newGame[playingTimesAct].IsPlayed==true)
                 {
-                    inf+=playingTimesAct+1;
+                    act=playingTimesAct+1;
                 }else
                 {
-                    inf+=playingTimesAct;
+                    act=playingTimesAct;
                 }
+
+                inf = Report() + Environment.NewLine + Environment.NewLine
+                    + "You win " + crtAccount + " " + TimeOrTimes(crtAccount) + " Vs. Lose " + (act - crtAccount) + " " + TimeOrTimes(act - crtAccount);
+                inf+=Environment.NewLine + Environment.NewLine+"The Grade is " + crtAccount + " out of "+ act;
+                
                
             
             }
@@ -325,6 +334,26 @@ namespace Project01
             ReportWindow about = new ReportWindow();
             about.Owner = this;
             about.ShowDialog();
+        }
+
+        /// <summary>
+        /// check which word will show depond on the number
+        /// </summary>
+        /// <param name="number">times</param>
+        /// <returns>time or times(number!=0 or 1)</returns>
+        private string TimeOrTimes(int number)
+        {
+            string inf = "";
+            if (number == 0 || number==1)
+            {
+                inf = "time";
+            }
+            else
+            {
+                inf = "times";
+            }
+
+            return inf;
         }
 
         /// <summary>
@@ -403,7 +432,7 @@ namespace Project01
             inf += Environment.NewLine + "Please use Menu to start New Game.";
             FeedbackHereLabel.Content = inf;
             CheckAnswerButton.IsEnabled = false;
-            GameLevelStackPlane.IsEnabled = true;
+            GameLevelStackPlane.IsEnabled = false;
             MainMenu.IsEnabled = true;
 
             int total = 1; ;
@@ -426,8 +455,8 @@ namespace Project01
         /// start game button click handler
         /// start the timer and show the question.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">object</param>
+        /// <param name="e">RoutedEventArgs</param>
         private void StartGameButton_Click(object sender, RoutedEventArgs e)
         {
             newGame[playingTimesAct].IsPlayed = true;
@@ -553,8 +582,8 @@ namespace Project01
         /// game level radio Button click handlor
         /// set NewGame's select game level
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">object</param>
+        /// <param name="e">RoutedEventArgs</param>
         private void GameLevelRadioButton_Click(object sender, RoutedEventArgs e)
         {
             RadioButton selectGameLevel = (sender as RadioButton);

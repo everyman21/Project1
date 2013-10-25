@@ -3,7 +3,7 @@
  * upate by : Andrew Goenenberg, Matt Murphey
  * Date: 2013 - 10 - 20
  * Description: Project 01 - Brain Games
- * Verion `1.0.3
+ * Verion `1.0.5
  */ 
 
 using System;
@@ -369,8 +369,9 @@ namespace Project01
             
             builder.AppendLine("Team Members : Andrew Groenenberg, Matt Murphey and Qi Zhang  ").AppendLine();
             builder.AppendLine(" Main Window Design By : Qi Zhang").AppendLine();
-            builder.AppendLine(" Update by : Andrew Groenenberg and Matt Murphey").AppendLine();
-            builder.AppendLine(" Version : 1.0.3 ");
+            builder.AppendLine(" Graphics by :Matt Murphey").AppendLine();
+            builder.AppendLine(" Updated by : Andrew Groenenberg and Matt Murphey").AppendLine();
+            builder.AppendLine(" Version : 1.0.5 ");
             
             MessageBox.Show( builder.ToString(), "About MainWindow", MessageBoxButton.OK, MessageBoxImage.Information);
         }

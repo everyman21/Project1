@@ -22,7 +22,7 @@
                     <ColumnDefinition Width="80"/>
                     <ColumnDefinition Width="80"/>
                 </Grid.ColumnDefinitions>
-                <RadioButton Content="level 1"  IsChecked="True" GroupName="GameLevel" Grid.Column="0" Checked="GameLevelRadioButton_Click"/>
+                <RadioButton x:Name="GameLevel1RadioButton" Content="level 1"  IsChecked="True" GroupName="GameLevel" Grid.Column="0" Checked="GameLevelRadioButton_Click"/>
                 <RadioButton Content="level 2" GroupName="GameLevel" Grid.Column="1" Checked="GameLevelRadioButton_Click"/>
                 <RadioButton Content="level 3" GroupName="GameLevel" Grid.Column="2" Checked="GameLevelRadioButton_Click"/>
             </Grid>

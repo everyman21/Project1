@@ -315,7 +315,8 @@ namespace Project01
         {
 
             SumTheSelected newGame = new SumTheSelected(timesPlayed, this.Level);
-            newGame.Show();
+
+            newGame.ShowDialog(); 
             this.Close();
         }
 
